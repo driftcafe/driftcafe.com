@@ -1,13 +1,49 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --foreground: #1A1A1A;
+  --background: #F2F2EB;
+  /* Slightly darker warm off-white, easier to see than F8F8F2 */
+  /* Warm off-white */
+  --gray-100: #EAEAE4;
+  /* Slightly darker warm gray for cards/sections */
+  --gray-200: #DADAD4;
+  --accent: #111111;
+  --muted: #666660;
+
+  /* Typography */
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-inter), sans-serif;
+  /* Unifying stack to Inter */
+
+  /* Spacing / Grid */
+  --grid-columns: 12;
+  --grid-gap: 24px;
+  --max-width: 1280px;
+  --mobile-padding: 40px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Dark mode removed to enforce "Swiss" light theme */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -19,15 +55,24 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-serif);
+  /* Body text in Serif */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  /* Headings in Sans */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -35,8 +80,241 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Navigation Links */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  /* Space between text and underline */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  /* Chunky thickness */
+  background-color: var(--foreground);
+  opacity: 0;
+  transform: scaleY(0.5);
+  /* Start slightly thinner or just hidden */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Project Card Hover Effects */
+.card-image {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-content {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .card-content {
+  transform: translateY(-4px);
+}
+
+/* Minimal Grid Utility */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--mobile-padding);
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Utility to span full width on mobile, specialized on desktop */
+.col-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  img:not(.logo) {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  figure {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.75rem;
+  }
+
+  .prose thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .prose tbody {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .prose,
+  .prose>* {
+    max-width: 100% !important;
+  }
+
+  article>div>div>div {
+    max-width: 100% !important;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+  }
+}
+
+/* Typography Utilities for Content (Global) */
+.prose {
+  display: flex;
+  flex-direction: column;
+}
+
+.prose>* {
+  max-width: 800px;
+}
+
+.prose>figure {
+  max-width: 100%;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.prose p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.prose ul,
+.prose ol {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.prose strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.view-all-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.view-all-link:hover {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Simple Table Styles for Prose */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1rem;
+}
+
+.prose th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 2px solid var(--gray-200);
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.prose td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--foreground);
+  vertical-align: top;
+}
+
+.prose tr:last-child td {
+  border-bottom: none;
+}
+
+/* Social Icons */
+.social-icon {
+  color: #A3A3A3;
+  transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--foreground);
+}
+
+/* Footer Layout */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
   }
 }
