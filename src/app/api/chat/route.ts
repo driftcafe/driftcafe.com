@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import { SYSTEM_PROMPT } from '@/lib/ai-context';
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function POST(request: NextRequest) {
     try {
@@ -16,39 +14,48 @@ export async function POST(request: NextRequest) {
         }
 
         if (!process.env.GEMINI_API_KEY) {
+            console.error('❌ GEMINI_API_KEY is not configured');
             return NextResponse.json(
-                { error: 'API key not configured' },
+                { error: 'API key not configured. Please add GEMINI_API_KEY to .env.local' },
                 { status: 500 }
             );
         }
 
-        // Initialize Gemini model
-        const model = genAI.getGenerativeModel({
-            model: 'gemini-1.5-flash',
-            systemInstruction: SYSTEM_PROMPT,
+        console.log('✅ API key found, initializing Gemini...');
+
+        // Initialize with the correct SDK
+        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+        // Build the full conversation with system prompt
+        const fullConversation =
+            `${SYSTEM_PROMPT}\n\nConversation history:\n` +
+            history.map((msg: { role: string; content: string }) =>
+                `${msg.role}: ${msg.content}`
+            ).join('\n') +
+            `\n\nUser: ${message}\n\nAssistant:`;
+
+        console.log('✅ Sending request to Gemini...');
+
+        // Make the request
+        const response = await ai.models.generateContent({
+            model: 'gemini-3-flash-preview',
+            contents: fullConversation,
         });
 
-        // Build conversation history
-        const chatHistory = history.map((msg: { role: string; content: string }) => ({
-            role: msg.role === 'user' ? 'user' : 'model',
-            parts: [{ text: msg.content }],
-        }));
+        const responseText = response.text || "I'm sorry, I couldn't generate a response.";
 
-        // Start chat with history
-        const chat = model.startChat({
-            history: chatHistory,
-        });
+        console.log('✅ Response generated successfully');
 
-        // Send message and get response
-        const result = await chat.sendMessage(message);
-        const response = result.response.text();
-
-        return NextResponse.json({ response });
+        return NextResponse.json({ response: responseText });
     } catch (error) {
-        console.error('Chat API error:', error);
+        console.error('❌ Chat API error:', error);
+
+        if (error instanceof Error) {
+            console.error('Error message:', error.message);
+        }
 
         return NextResponse.json(
-            { error: 'Failed to process your message. Please try again.' },
+            { error: 'Failed to process your message. Check server logs for details.' },
             { status: 500 }
         );
     }

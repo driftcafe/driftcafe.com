@@ -38,6 +38,15 @@ export default function Header() {
                     >
                         About
                     </Link>
+                    <button
+                        onClick={() => {
+                            const event = new CustomEvent('toggleChat');
+                            window.dispatchEvent(event);
+                        }}
+                        className="nav-link"
+                    >
+                        Ask AI
+                    </button>
                 </nav>
             </div>
         </header>

@@ -30,6 +30,14 @@ export default function ChatWidget() {
         scrollToBottom();
     }, [messages]);
 
+    useEffect(() => {
+        const handleToggleChat = () => {
+            setIsOpen(true);
+        };
+        window.addEventListener('toggleChat', handleToggleChat);
+        return () => window.removeEventListener('toggleChat', handleToggleChat);
+    }, []);
+
     const sendMessage = async (messageText: string) => {
         if (!messageText.trim() || isLoading) return;
 
@@ -82,7 +90,8 @@ export default function ChatWidget() {
 
     return (
         <>
-            {/* Chat Button */}
+            {/* Chat Button - Hidden since we have nav link */}
+            {/* Uncomment if you want both nav link AND floating button
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
@@ -110,13 +119,14 @@ export default function ChatWidget() {
             >
                 {isOpen ? '✕' : '💬'}
             </button>
+            */}
 
             {/* Chat Window */}
             {isOpen && (
                 <div
                     style={{
                         position: 'fixed',
-                        bottom: '100px',
+                        top: '100px',
                         right: '24px',
                         width: '380px',
                         maxWidth: 'calc(100vw - 48px)',
@@ -137,14 +147,68 @@ export default function ChatWidget() {
                             padding: '20px',
                             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                             color: 'white',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
                         }}
                     >
-                        <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600 }}>
-                            Ask AI About Me
-                        </h3>
-                        <p style={{ margin: '4px 0 0', fontSize: '14px', opacity: 0.9 }}>
-                            Questions about my work & experience
-                        </p>
+                        <div>
+                            <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600 }}>
+                                Ask AI About Me
+                            </h3>
+                            <p style={{ margin: '4px 0 0', fontSize: '14px', opacity: 0.9 }}>
+                                Questions about my work & experience
+                            </p>
+                        </div>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                            {messages.length > 0 && (
+                                <button
+                                    onClick={() => setMessages([])}
+                                    style={{
+                                        background: 'rgba(255, 255, 255, 0.2)',
+                                        border: 'none',
+                                        borderRadius: '6px',
+                                        padding: '8px 12px',
+                                        color: 'white',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        fontWeight: 500,
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                    onMouseEnter={(e) =>
+                                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)')
+                                    }
+                                    onMouseLeave={(e) =>
+                                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)')
+                                    }
+                                >
+                                    Start Over
+                                </button>
+                            )}
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                style={{
+                                    background: 'rgba(255, 255, 255, 0.2)',
+                                    border: 'none',
+                                    borderRadius: '6px',
+                                    padding: '8px 12px',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    fontWeight: 500,
+                                    lineHeight: 1,
+                                }}
+                                onMouseEnter={(e) =>
+                                    (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)')
+                                }
+                                onMouseLeave={(e) =>
+                                    (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)')
+                                }
+                                aria-label="Close chat"
+                            >
+                                ✕
+                            </button>
+                        </div>
                     </div>
 
                     {/* Messages */}
@@ -279,8 +343,9 @@ export default function ChatWidget() {
                             Send
                         </button>
                     </form>
-                </div>
-            )}
+                </div >
+            )
+            }
         </>
     );
 }
