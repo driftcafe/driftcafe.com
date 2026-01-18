@@ -310,7 +310,7 @@ export default function ChatWidget() {
                                     style={{
                                         padding: '12px 16px',
                                         borderRadius: '12px',
-                                        background: '#f5f5f5',
+                                        background: '#EAEAE4',
                                         color: '#666',
                                         fontSize: '14px',
                                     }}
