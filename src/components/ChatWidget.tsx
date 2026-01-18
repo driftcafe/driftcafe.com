@@ -97,7 +97,7 @@ export default function ChatWidget() {
 
         lines.forEach((line) => {
             const trimmed = line.trim();
-            if (trimmed.startsWith('*')) {
+            if (trimmed.startsWith('*') && !trimmed.startsWith('**')) {
                 if (!inList) {
                     formatted += '<ul style="margin: 0; padding-left: 20px;">';
                     inList = true;
@@ -109,7 +109,9 @@ export default function ChatWidget() {
                     inList = false;
                 }
                 if (trimmed) {
-                    formatted += `<p style="margin: 0 0 8px 0;">${trimmed}</p>`;
+                    // Convert **bold** to <strong>
+                    const withBold = trimmed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    formatted += `<p style="margin: 0 0 8px 0;">${withBold}</p>`;
                 }
             }
         });
