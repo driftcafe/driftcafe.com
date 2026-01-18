@@ -353,7 +353,7 @@ export default function ChatWidget() {
                             disabled={!input.trim() || isLoading}
                             style={{
                                 padding: '12px 20px',
-                                background: input.trim() && !isLoading ? '#667eea' : '#ccc',
+                                background: input.trim() && !isLoading ? '#1A1A1A' : '#ccc',
                                 color: 'white',
                                 border: 'none',
                                 borderRadius: '8px',
