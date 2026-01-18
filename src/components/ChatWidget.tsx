@@ -144,81 +144,87 @@ export default function ChatWidget() {
                     {/* Header */}
                     <div
                         style={{
-                            padding: '24px 20px',
+                            padding: '8px',
                             background: '#1A1A1A',
                             color: 'white',
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            gap: '16px',
+                            position: 'relative',
+                            paddingTop: '40px',
+                            paddingBottom: '16px',
                         }}
                     >
-                        {/* Left: Start Over button */}
-                        <div style={{ flex: '0 0 auto' }}>
-                            {messages.length > 0 && (
-                                <button
-                                    onClick={() => setMessages([])}
-                                    style={{
-                                        background: 'rgba(255, 255, 255, 0.15)',
-                                        border: 'none',
-                                        borderRadius: '8px',
-                                        padding: '10px 20px',
-                                        color: 'white',
-                                        cursor: 'pointer',
-                                        fontSize: '15px',
-                                        fontWeight: 500,
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                    onMouseEnter={(e) =>
-                                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)')
-                                    }
-                                    onMouseLeave={(e) =>
-                                        (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)')
-                                    }
-                                >
-                                    Start Over
-                                </button>
-                            )}
-                        </div>
-
-                        {/* Center: Title and subtitle */}
-                        <div style={{ flex: '1 1 auto', textAlign: 'center' }}>
-                            <h3 style={{ margin: 0, fontSize: '24px', fontWeight: 600, marginBottom: '4px' }}>
-                                Ask AI About Me
-                            </h3>
-                            <p style={{ margin: 0, fontSize: '15px', opacity: 0.8 }}>
-                                Questions about my work & experience
-                            </p>
-                        </div>
-
-                        {/* Right: Close button */}
-                        <div style={{ flex: '0 0 auto' }}>
+                        {/* Top left: Start Over button */}
+                        {messages.length > 0 && (
                             <button
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => setMessages([])}
                                 style={{
-                                    background: 'rgba(255, 255, 255, 0.15)',
+                                    position: 'absolute',
+                                    top: '8px',
+                                    left: '8px',
+                                    background: 'rgba(255, 255, 255, 0.1)',
                                     border: 'none',
                                     borderRadius: '8px',
-                                    padding: '10px 16px',
+                                    padding: '0 16px',
+                                    height: '26px',
                                     color: 'white',
                                     cursor: 'pointer',
-                                    fontSize: '20px',
+                                    fontSize: '12px',
                                     fontWeight: 400,
-                                    lineHeight: 1,
+                                    whiteSpace: 'nowrap',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    justifyContent: 'center',
                                 }}
                                 onMouseEnter={(e) =>
-                                    (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)')
-                                }
-                                onMouseLeave={(e) =>
                                     (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)')
                                 }
-                                aria-label="Close chat"
+                                onMouseLeave={(e) =>
+                                    (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')
+                                }
                             >
-                                ✕
+                                Start Over
                             </button>
+                        )}
+
+                        {/* Top right: Close button */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            style={{
+                                position: 'absolute',
+                                top: '8px',
+                                right: '8px',
+                                background: 'rgba(255, 255, 255, 0.1)',
+                                border: 'none',
+                                borderRadius: '8px',
+                                padding: '0',
+                                width: '26px',
+                                height: '26px',
+                                color: 'white',
+                                cursor: 'pointer',
+                                fontSize: '16px',
+                                fontWeight: 400,
+                                lineHeight: 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                            onMouseEnter={(e) =>
+                                (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)')
+                            }
+                            onMouseLeave={(e) =>
+                                (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')
+                            }
+                            aria-label="Close chat"
+                        >
+                            ✕
+                        </button>
+
+                        {/* Center: Title and subtitle */}
+                        <div style={{ textAlign: 'center' }}>
+                            <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 500, marginBottom: '4px' }}>
+                                Ask AI About Me
+                            </h3>
+                            <p style={{ margin: 0, fontSize: '12px', opacity: 0.7 }}>
+                                Questions about my work & experience
+                            </p>
                         </div>
                     </div>
 
