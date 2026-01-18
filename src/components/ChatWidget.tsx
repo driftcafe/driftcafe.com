@@ -258,6 +258,9 @@ export default function ChatWidget() {
                                                 fontSize: '14px',
                                                 textAlign: 'left',
                                                 transition: 'background 0.2s',
+                                                color: '#333',
+                                                textDecoration: 'none',
+                                                WebkitTapHighlightColor: 'transparent',
                                             }}
                                             onMouseEnter={(e) =>
                                                 (e.currentTarget.style.background = '#DADAD4')
