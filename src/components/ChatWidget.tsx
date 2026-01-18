@@ -132,7 +132,7 @@ export default function ChatWidget() {
                         maxWidth: 'calc(100vw - 48px)',
                         height: '600px',
                         maxHeight: 'calc(100vh - 150px)',
-                        background: 'white',
+                        background: '#F2F2EB',
                         borderRadius: '16px',
                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
                         display: 'flex',
@@ -145,7 +145,7 @@ export default function ChatWidget() {
                     <div
                         style={{
                             padding: '20px',
-                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            background: '#1A1A1A',
                             color: 'white',
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -234,8 +234,8 @@ export default function ChatWidget() {
                                             onClick={() => handleSuggestedQuestion(question)}
                                             style={{
                                                 padding: '12px',
-                                                background: '#f5f5f5',
-                                                border: '1px solid #e0e0e0',
+                                                background: '#EAEAE4',
+                                                border: '1px solid #DADAD4',
                                                 borderRadius: '8px',
                                                 cursor: 'pointer',
                                                 fontSize: '14px',
@@ -243,10 +243,10 @@ export default function ChatWidget() {
                                                 transition: 'background 0.2s',
                                             }}
                                             onMouseEnter={(e) =>
-                                                (e.currentTarget.style.background = '#ebebeb')
+                                                (e.currentTarget.style.background = '#DADAD4')
                                             }
                                             onMouseLeave={(e) =>
-                                                (e.currentTarget.style.background = '#f5f5f5')
+                                                (e.currentTarget.style.background = '#EAEAE4')
                                             }
                                         >
                                             {question}
@@ -270,8 +270,8 @@ export default function ChatWidget() {
                                         borderRadius: '12px',
                                         background:
                                             message.role === 'user'
-                                                ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-                                                : '#f5f5f5',
+                                                ? '#1A1A1A'
+                                                : '#EAEAE4',
                                         color: message.role === 'user' ? 'white' : '#333',
                                         fontSize: '14px',
                                         lineHeight: '1.5',
