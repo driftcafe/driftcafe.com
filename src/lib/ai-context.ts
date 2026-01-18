@@ -33,8 +33,11 @@ technologies while maintaining a strong focus on user experience and ethical des
             working: 'Drum and Bass, jazz, chill electronic',
             cycling: 'Grateful Dead'
         },
-        hobbies: ['Cycling', 'Hiking', 'Drawing', 'Painting', 'Music', 'Cooking'],
-        sports: ['Baseball', 'Basketball', 'Football', 'Soccer', 'Tennis', 'Golf']
+        hobbies: ['Cycling', 'Hiking', 'Drawing', 'Painting', 'Music', 'Cooking', 'Custom building bicycles'],
+        sports: ['Baseball', 'Basketball', 'Football', 'Soccer', 'Tennis', 'Golf'],
+        sportsTeams: ['Seattle Mariners', 'Seattle Seahawks', 'Seattle Sounders'],
+        favoriteArtists: ['Cezanne', 'Rothko', 'Magritte', 'Dali', 'Modigliani', 'Francis Bacon'],
+        designInspiration: ['El Lissitzky', 'Stefan Sagmeister', 'Milton Glaser', 'Paul Rand', 'Dieter Rams', 'David Carson']
     },
 
     // This will be populated from the projects data
@@ -81,4 +84,7 @@ Personal (Easter Eggs):
 - Music: ${AI_CONTEXT.personal.music.general} (${AI_CONTEXT.personal.music.working} for working, ${AI_CONTEXT.personal.music.cycling} for bike rides)
 - Hobbies: ${AI_CONTEXT.personal.hobbies.join(', ')}
 - Sports: ${AI_CONTEXT.personal.sports.join(', ')}
+- Favorite Teams: ${AI_CONTEXT.personal.sportsTeams.join(', ')}
+- Favorite Artists: ${AI_CONTEXT.personal.favoriteArtists.join(', ')}
+- Design Inspiration: ${AI_CONTEXT.personal.designInspiration.join(', ')}
 `;
