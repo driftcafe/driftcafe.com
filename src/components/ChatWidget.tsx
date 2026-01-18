@@ -126,12 +126,14 @@ export default function ChatWidget() {
                 <div
                     style={{
                         position: 'fixed',
-                        top: '100px',
-                        right: '24px',
-                        width: '380px',
-                        maxWidth: 'calc(100vw - 48px)',
-                        height: '600px',
-                        maxHeight: 'calc(100vh - 150px)',
+                        top: '80px',
+                        right: '16px',
+                        left: '16px',
+                        width: 'auto',
+                        maxWidth: '400px',
+                        marginLeft: 'auto',
+                        height: 'calc(100vh - 100px)',
+                        maxHeight: '600px',
                         background: '#F2F2EB',
                         borderRadius: '16px',
                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
@@ -340,9 +342,9 @@ export default function ChatWidget() {
                             style={{
                                 flex: 1,
                                 padding: '12px',
-                                border: '1px solid #e0e0e0',
+                                border: '1px solid #DADAD4',
                                 borderRadius: '8px',
-                                fontSize: '14px',
+                                fontSize: '16px',
                                 outline: 'none',
                             }}
                         />
