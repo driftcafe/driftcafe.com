@@ -90,6 +90,9 @@ export default function ChatWidget() {
 
     // Simple markdown formatting for chat messages
     const formatMessage = (content: string) => {
+        // Helper to convert **bold** to <strong>
+        const convertBold = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
         // Convert * bullet points to HTML list items
         const lines = content.split('\n');
         let formatted = '';
@@ -102,16 +105,15 @@ export default function ChatWidget() {
                     formatted += '<ul style="margin: 0; padding-left: 20px;">';
                     inList = true;
                 }
-                formatted += `<li>${trimmed.substring(1).trim()}</li>`;
+                const itemText = trimmed.substring(1).trim();
+                formatted += `<li>${convertBold(itemText)}</li>`;
             } else {
                 if (inList) {
                     formatted += '</ul>';
                     inList = false;
                 }
                 if (trimmed) {
-                    // Convert **bold** to <strong>
-                    const withBold = trimmed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    formatted += `<p style="margin: 0 0 8px 0;">${withBold}</p>`;
+                    formatted += `<p style="margin: 0 0 8px 0;">${convertBold(trimmed)}</p>`;
                 }
             }
         });
