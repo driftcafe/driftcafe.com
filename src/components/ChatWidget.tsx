@@ -88,6 +88,39 @@ export default function ChatWidget() {
         sendMessage(input);
     };
 
+    // Simple markdown formatting for chat messages
+    const formatMessage = (content: string) => {
+        // Convert * bullet points to HTML list items
+        const lines = content.split('\n');
+        let formatted = '';
+        let inList = false;
+
+        lines.forEach((line) => {
+            const trimmed = line.trim();
+            if (trimmed.startsWith('*')) {
+                if (!inList) {
+                    formatted += '<ul style="margin: 0; padding-left: 20px;">';
+                    inList = true;
+                }
+                formatted += `<li>${trimmed.substring(1).trim()}</li>`;
+            } else {
+                if (inList) {
+                    formatted += '</ul>';
+                    inList = false;
+                }
+                if (trimmed) {
+                    formatted += `<p style="margin: 0 0 8px 0;">${trimmed}</p>`;
+                }
+            }
+        });
+
+        if (inList) {
+            formatted += '</ul>';
+        }
+
+        return formatted;
+    };
+
     return (
         <>
             {/* Chat Button - Hidden since we have nav link */}
@@ -298,9 +331,12 @@ export default function ChatWidget() {
                                         fontSize: '14px',
                                         lineHeight: '1.5',
                                     }}
-                                >
-                                    {message.content}
-                                </div>
+                                    dangerouslySetInnerHTML={{
+                                        __html: message.role === 'assistant'
+                                            ? formatMessage(message.content)
+                                            : message.content
+                                    }}
+                                />
                             </div>
                         ))}
 
