@@ -231,9 +231,6 @@ Education:
 - BFA Visual Communications, University of Arizona (2006)
 - AAS Web Design, Pima Community College (2002)
 
-Current Projects:
-- Roots Mobile Financial App: AI-native financial wellness with conversational assistant
-
 Portfolio Projects (use these links when relevant):
 ${AI_CONTEXT.projects.map(p => `- [${p.title}](${p.url}): ${p.description}`).join('\n')}
 
