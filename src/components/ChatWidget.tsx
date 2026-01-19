@@ -118,6 +118,9 @@ export default function ChatWidget() {
         // Helper to convert **bold** to <strong>
         const convertBold = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
+        // Helper to convert [text](url) to <a> tags
+        const convertLinks = (text: string) => text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color: #1A1A1A; text-decoration: underline; font-weight: 500;">$1</a>');
+
         // Convert * bullet points to HTML list items
         const lines = content.split('\n');
         let formatted = '';
@@ -131,14 +134,14 @@ export default function ChatWidget() {
                     inList = true;
                 }
                 const itemText = trimmed.substring(1).trim();
-                formatted += `<li>${convertBold(itemText)}</li>`;
+                formatted += `<li>${convertLinks(convertBold(itemText))}</li>`;
             } else {
                 if (inList) {
                     formatted += '</ul>';
                     inList = false;
                 }
                 if (trimmed) {
-                    formatted += `<p style="margin: 0 0 8px 0;">${convertBold(trimmed)}</p>`;
+                    formatted += `<p style="margin: 0 0 8px 0;">${convertLinks(convertBold(trimmed))}</p>`;
                 }
             }
         });

@@ -143,10 +143,42 @@ Particularly interested in roles where I can leverage my experience making compl
         designInspiration: ['El Lissitzky', 'Stefan Sagmeister', 'Milton Glaser', 'Paul Rand', 'Dieter Rams', 'David Carson']
     },
 
-    // Portfolio projects - will be populated with actual project data
+    // Portfolio projects with links
+    projects: [
+        {
+            title: 'Hila GenAI Platform',
+            slug: 'hila',
+            description: 'Led 0→1 design driving launch to $1M ARR and 4,000+ enterprise users in 4 months. Solved "Black Box" problem with transparency features for financial analysis.',
+            url: '/work/hila'
+        },
+        {
+            title: 'Building with Claude (MCP)',
+            slug: 'building-with-claude',
+            description: 'Experimental design-to-code pipeline using Claude API and Model Context Protocol. Validated rapid prototyping workflow.',
+            url: '/work/building-with-claude'
+        },
+        {
+            title: 'Kinect for Windows',
+            slug: 'kinect',
+            description: 'Pioneered interaction patterns for probabilistic gesture and voice systems, enabling 10M+ developers to adopt AI-mediated interfaces.',
+            url: '/work/kinect'
+        },
+        {
+            title: 'ML Platform',
+            slug: 'ml-platform',
+            description: 'Designed modular end-to-end ML platform for data scientists, ML engineers, and analysts with visualization systems for ML metrics.',
+            url: '/work/ml-platform'
+        },
+        {
+            title: 'Xbox Developer Tools',
+            slug: 'xbox-developer-tools',
+            description: 'Designed developer tools for game creation including PIX performance profiler and Dev Mode console management.',
+            url: '/work/xbox-developer-tools'
+        }
+    ],
+
     getProjectsContext: () => {
-        return `Josh's portfolio showcases his work in AI/ML product design, including the hila GenAI platform, ML tooling, 
-and developer experiences. His work focuses on making complex AI systems trustworthy and accessible through thoughtful design.`;
+        return AI_CONTEXT.projects.map(p => `${p.title}: ${p.description}`).join('\n');
     }
 };
 
@@ -158,13 +190,14 @@ Your role is to answer questions about Josh's professional background, skills, e
 IMPORTANT RULES:
 1. **Be extremely concise** - Keep responses to 2-3 sentences maximum, or use brief bullet points
 2. **Professional focus** - Prioritize questions about work, skills, projects, and career
-3. **Fun easter eggs allowed** - If asked about hobbies, music, sports, or favorite things, share those details briefly and enthusiastically!
-4. **Redirect unrelated topics** - For random questions (weather, recipes, general knowledge), say:
+3. **Link to projects** - When discussing specific work, use markdown links: [Project Name](/work/project-slug)
+4. **Fun easter eggs allowed** - If asked about hobbies, music, sports, or favorite things, share those details briefly and enthusiastically!
+5. **Redirect unrelated topics** - For random questions (weather, recipes, general knowledge), say:
    "I can only answer questions about Josh! Ask me about his work or interests."
-5. Be friendly and conversational, like texting a colleague
-6. Use bullet points for lists instead of long paragraphs
-7. If you don't have information, say so briefly
-8. Avoid repeating the question back - just answer directly
+6. Be friendly and conversational, like texting a colleague
+7. Use bullet points for lists instead of long paragraphs
+8. If you don't have information, say so briefly
+9. Avoid repeating the question back - just answer directly
 
 CONTEXT ABOUT JOSH:
 
@@ -200,6 +233,9 @@ Education:
 
 Current Projects:
 - Roots Mobile Financial App: AI-native financial wellness with conversational assistant
+
+Portfolio Projects (use these links when relevant):
+${AI_CONTEXT.projects.map(p => `- [${p.title}](${p.url}): ${p.description}`).join('\n')}
 
 Career Goals:
 ${AI_CONTEXT.careerGoals}
