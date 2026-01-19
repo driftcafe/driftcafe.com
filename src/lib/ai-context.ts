@@ -174,6 +174,54 @@ Particularly interested in roles where I can leverage my experience making compl
             slug: 'xbox-developer-tools',
             description: 'Designed developer tools for game creation including PIX performance profiler and Dev Mode console management.',
             url: '/work/xbox-developer-tools'
+        },
+        {
+            title: 'Mana Integrated AI',
+            slug: 'mana',
+            description: 'Unified, flexible, and modular AI platform enabling industry-specific solutions. Created visual identity and UI/UX prototypes.',
+            url: '/work/mana'
+        },
+        {
+            title: 'Digital Art',
+            slug: 'digital-art',
+            description: 'Hyper-realistic digital painting application for Windows 8. Featured at Museum of Modern Art (MoMA) in NYC.',
+            url: '/work/digital-art'
+        },
+        {
+            title: 'Motion Design Reel',
+            slug: 'motion-design-reel',
+            description: 'Motion graphics and animation work for Infosys Foundation USA including logo animations and infographics.',
+            url: '/work/motion-design-reel'
+        },
+        {
+            title: 'Xbox Website',
+            slug: 'xbox-website',
+            description: 'Premium shopping experience for games and content on Xbox.com with immersive game imagery.',
+            url: '/work/xbox-website'
+        },
+        {
+            title: 'Medical UI',
+            slug: 'medical',
+            description: 'Critical safety interface for medication dosage management on pump infusion systems.',
+            url: '/work/medical'
+        },
+        {
+            title: 'Netflix Concept',
+            slug: 'netflix-concept',
+            description: 'Design thinking exercise for social features on Netflix. Rapid prototyping with paper prototypes and user testing.',
+            url: '/work/netflix-concept'
+        },
+        {
+            title: 'Pen & Touch Scenarios',
+            slug: 'pentouch',
+            description: 'Product development scenario explorations for Surface tablet across various markets and use cases.',
+            url: '/work/pentouch'
+        },
+        {
+            title: 'Hardware Concepts',
+            slug: 'hardware',
+            description: 'Mobile projector concepts for portable, collaborative, and interactive meetings.',
+            url: '/work/hardware'
         }
     ],
 
