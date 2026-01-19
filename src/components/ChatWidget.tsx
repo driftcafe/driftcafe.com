@@ -1,6 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import {
+    trackChatToggle,
+    trackQuestionAsked,
+    trackSuggestedQuestion,
+    trackConversationStart,
+    trackChatError,
+} from '@/lib/analytics';
 
 interface Message {
     role: 'user' | 'assistant';
@@ -33,18 +40,34 @@ export default function ChatWidget() {
     useEffect(() => {
         const handleToggleChat = () => {
             setIsOpen(true);
+            trackChatToggle(true);
         };
         window.addEventListener('toggleChat', handleToggleChat);
         return () => window.removeEventListener('toggleChat', handleToggleChat);
     }, []);
 
-    const sendMessage = async (messageText: string) => {
+    // Track chat open/close
+    useEffect(() => {
+        if (isOpen) {
+            trackChatToggle(true);
+        }
+    }, [isOpen]);
+
+    const sendMessage = async (messageText: string, isSuggested: boolean = false) => {
         if (!messageText.trim() || isLoading) return;
 
         const userMessage: Message = { role: 'user', content: messageText };
+        const isFirstMessage = messages.length === 0;
+
         setMessages((prev) => [...prev, userMessage]);
         setInput('');
         setIsLoading(true);
+
+        // Track analytics
+        if (isFirstMessage) {
+            trackConversationStart();
+        }
+        trackQuestionAsked(messageText, isSuggested, messages.length);
 
         try {
             const response = await fetch('/api/chat', {
@@ -59,6 +82,7 @@ export default function ChatWidget() {
             const data = await response.json();
 
             if (data.error) {
+                trackChatError('api_error');
                 throw new Error(data.error);
             }
 
@@ -79,8 +103,9 @@ export default function ChatWidget() {
         }
     };
 
-    const handleSuggestedQuestion = (question: string) => {
-        sendMessage(question);
+    const handleSuggestedQuestion = (question: string, index: number) => {
+        trackSuggestedQuestion(index, question);
+        sendMessage(question, true);
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -287,7 +312,7 @@ export default function ChatWidget() {
                                     {SUGGESTED_QUESTIONS.map((question, index) => (
                                         <button
                                             key={index}
-                                            onClick={() => handleSuggestedQuestion(question)}
+                                            onClick={() => handleSuggestedQuestion(question, index)}
                                             style={{
                                                 padding: '12px',
                                                 background: '#EAEAE4',
