@@ -29,6 +29,41 @@ export default function ChatWidget() {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    // Load conversation from localStorage on mount
+    useEffect(() => {
+        const savedMessages = localStorage.getItem('chatMessages');
+        const savedIsOpen = localStorage.getItem('chatIsOpen');
+
+        if (savedMessages) {
+            try {
+                setMessages(JSON.parse(savedMessages));
+            } catch (e) {
+                console.error('Failed to load chat messages:', e);
+            }
+        }
+
+        if (savedIsOpen === 'true') {
+            setIsOpen(true);
+        }
+    }, []);
+
+    // Save messages to localStorage whenever they change
+    useEffect(() => {
+        if (messages.length > 0) {
+            localStorage.setItem('chatMessages', JSON.stringify(messages));
+        }
+    }, [messages]);
+
+    // Save isOpen state to localStorage
+    useEffect(() => {
+        localStorage.setItem('chatIsOpen', isOpen.toString());
+    }, [isOpen]);
+
+    const resetConversation = () => {
+        setMessages([]);
+        localStorage.removeItem('chatMessages');
+    };
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
