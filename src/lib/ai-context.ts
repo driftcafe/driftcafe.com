@@ -148,79 +148,79 @@ Particularly interested in roles where I can leverage my experience making compl
         {
             title: 'Hila GenAI Platform',
             slug: 'hila',
-            description: 'Led 0→1 design driving launch to $1M ARR and 4,000+ enterprise users in 4 months. Solved "Black Box" problem with transparency features for financial analysis.',
+            description: 'Vianai Systems: Led 0→1 design driving launch to $1M ARR and 4,000+ enterprise users in 4 months. Solved "Black Box" problem with transparency features.',
             url: '/work/hila'
         },
         {
             title: 'Building with Claude (MCP)',
             slug: 'building-with-claude',
-            description: 'Experimental design-to-code pipeline using Claude API and Model Context Protocol. Validated rapid prototyping workflow.',
+            description: 'Personal Project: Experimental design-to-code pipeline using Claude API and Model Context Protocol.',
             url: '/work/building-with-claude'
         },
         {
             title: 'Kinect for Windows',
             slug: 'kinect',
-            description: 'Pioneered interaction patterns for probabilistic gesture and voice systems, enabling 10M+ developers to adopt AI-mediated interfaces.',
+            description: 'Microsoft: Pioneered interaction patterns for probabilistic gesture and voice systems, enabling 10M+ developers to adopt AI-mediated interfaces.',
             url: '/work/kinect'
         },
         {
             title: 'ML Platform',
             slug: 'ml-platform',
-            description: 'Designed modular end-to-end ML platform for data scientists, ML engineers, and analysts with visualization systems for ML metrics.',
+            description: 'Vianai Systems: Designed modular end-to-end ML platform for data scientists, ML engineers, and analysts with visualization systems.',
             url: '/work/ml-platform'
         },
         {
             title: 'Xbox Developer Tools',
             slug: 'xbox-developer-tools',
-            description: 'Designed developer tools for game creation including PIX performance profiler and Dev Mode console management.',
+            description: 'Microsoft: Designed developer tools for game creation including PIX performance profiler and Dev Mode console management.',
             url: '/work/xbox-developer-tools'
         },
         {
             title: 'Mana Integrated AI',
             slug: 'mana',
-            description: 'Unified, flexible, and modular AI platform enabling industry-specific solutions. Created visual identity and UI/UX prototypes.',
+            description: 'Infosys: Unified, flexible AI platform enabling industry-specific solutions. Created visual identity and UI/UX prototypes.',
             url: '/work/mana'
         },
         {
             title: 'Digital Art',
             slug: 'digital-art',
-            description: 'Hyper-realistic digital painting application for Windows 8. Featured at Museum of Modern Art (MoMA) in NYC.',
+            description: 'Microsoft: Hyper-realistic digital painting application for Windows 8. Featured at Museum of Modern Art (MoMA).',
             url: '/work/digital-art'
         },
         {
             title: 'Motion Design Reel',
             slug: 'motion-design-reel',
-            description: 'Motion graphics and animation work for Infosys Foundation USA including logo animations and infographics.',
+            description: 'Infosys Foundation USA: Motion graphics and animation work including logo animations and infographics.',
             url: '/work/motion-design-reel'
         },
         {
             title: 'Xbox Website',
             slug: 'xbox-website',
-            description: 'Premium shopping experience for games and content on Xbox.com with immersive game imagery.',
+            description: 'Microsoft: Premium shopping experience for games and content on Xbox.com with immersive game imagery.',
             url: '/work/xbox-website'
         },
         {
             title: 'Medical UI',
             slug: 'medical',
-            description: 'Critical safety interface for medication dosage management on pump infusion systems.',
+            description: 'Teague: Critical safety interface for medication dosage management on pump infusion systems.',
             url: '/work/medical'
         },
         {
             title: 'Netflix Concept',
             slug: 'netflix-concept',
-            description: 'Design thinking exercise for social features on Netflix. Rapid prototyping with paper prototypes and user testing.',
+            description: 'Personal Project: Design thinking exercise for social features on Netflix with rapid prototyping.',
             url: '/work/netflix-concept'
         },
         {
             title: 'Pen & Touch Scenarios',
             slug: 'pentouch',
-            description: 'Product development scenario explorations for Surface tablet across various markets and use cases.',
+            description: 'Microsoft: Product development scenario explorations for Surface tablet across various markets.',
             url: '/work/pentouch'
         },
         {
             title: 'Hardware Concepts',
             slug: 'hardware',
-            description: 'Mobile projector concepts for portable, collaborative, and interactive meetings.',
+            description: 'Microsoft: Mobile projector concepts for portable, collaborative, and interactive meetings.',
             url: '/work/hardware'
         }
     ],
