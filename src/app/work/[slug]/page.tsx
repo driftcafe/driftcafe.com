@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                             </p>
 
                             <div style={{ textAlign: "left", marginBottom: "5rem" }}>
-                                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem", marginBottom: "2rem" }}>
+                                <div className="team-grid">
                                     <div>
                                         <span style={{ display: "block", fontSize: "0.8rem", color: "var(--muted)", marginBottom: "0.25rem", textTransform: "uppercase", letterSpacing: "0.5px" }}>Role</span>
                                         <span style={{ fontSize: "1.2rem" }}>{project.role}</span>

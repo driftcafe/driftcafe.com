@@ -14,85 +14,54 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        slug: "building-with-claude",
-        title: "Building with Claude",
-        description: "An experimental design-to-code pipeline using Claude’s API.",
-        category: "Prototype Exploration",
+        slug: "coffeebloom",
+        title: "CoffeeBloom",
+        description: "Data Visualization for the Daily Ritual",
+        category: "iOS Engineering",
         company: "Personal",
-        timeline: "1 week",
-        role: "Design Technologist",
+        timeline: "Jan – Feb 2026",
+        role: "iOS Engineer & Designer",
         team: "Solo",
-        outcome: "Validated Pipeline",
-        image: "/mcp-hero.png",
+        outcome: "Shipped v1.0",
+        image: "/coffeebloom-hero.png",
         content: `
-            <h3>The Vision: Closing the Design-to-Code Loop</h3>
-            <p>In the transition from deterministic to probabilistic UI, static mockups in Figma fail to capture the “feel” of an AI’s latency, reasoning, or uncertainty. I wanted to build a unified prototyping pipeline using Claude’s Model Context Protocol (MCP) that would:</p>
+            <h3>The Challenge: The Spreadsheet Effect</h3>
+            <p>The Decent Espresso ecosystem produces incredible amounts of data, but it often suffers from a "clinical" presentation. Users are forced to interpret complex hydrodynamics from raw line graphs, which creates a disconnect from the ritual of brewing. My goal was to build a tool where the data felt as organic as the coffee itself.</p>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <video src="/coffeebloom-particle-optimized.mov" autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 8px;"></video>
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Transforming raw pressure and flow data into a unique, generative 3D "fingerprint" for every shot.</figcaption>
+            </figure>
+
+            <h3>The Solution</h3>
+            <p>I designed a three-tiered experience that moves the user from emotional art to technical clarity.</p>
             <ul>
-                <li><strong>Sync with my Figma library</strong> – Pull live components into a functional environment</li>
-                <li><strong>Enable high-fidelity testing</strong> – Test real tool calls and agentic responses in minutes, not days</li>
+                <li><strong>Generative Art:</strong> A volumetric particle system where the radius is driven by pressure and the color gradient reflects thermal stability.</li>
+                <li><strong>The 5-Axis Fingerprint:</strong> A custom radar chart that distills the "Physics of Extraction" into five digestible metrics.</li>
+                <li><strong>Barista AI:</strong> A diagnostic engine that identifies complex flaws, such as "channeling" or "choking," which are often missed by simple averages.</li>
             </ul>
-            <p>The hypothesis: If I could connect Figma → MCP → Claude → Cursor, I could prototype AI interactions faster than our current Figma → engineer handoff cycle.</p>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/coffeebloom-radar.png" alt="CoffeeBloom Radar Chart vs Line Graph" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Moving beyond the spreadsheet: the 5-axis chart simplifies complex physics into actionable insights.</figcaption>
+            </figure>
+
+            <h3>Technical Spotlight</h3>
+            <h4>Unit Intelligence & Normalization</h4>
+            <p>Real-world data is messy. I implemented a self-correcting parser that automatically detects and normalizes units. For example, if the average temperature exceeds 130, the app recognizes the data as Fahrenheit and converts it to Celsius on the fly to prevent "flatlining" the visualization.</p>
             
-            <figure style="margin: 2rem 0;">
-                <img src="/mcp-pipeline.png" alt="Figma to Code Pipeline Diagram" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The MCP pipeline architecture—from Figma design system to functional React prototype in ~30 minutes.</figcaption>
+            <h4>The Inverse Normalization Curve</h4>
+            <p>Mapping "Flow Stability" was a unique UI challenge: in espresso, lower deviation is better. I developed a custom algorithm to reward stability with higher scores on the radar chart, ensuring that a "perfect" 0.0 deviation reflects a high-performing score.</p>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/coffeebloom-ui.png" alt="CoffeeBloom UI running on iPhone 14 Pro" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Testing the Swift/SwiftUI implementation for fluid 60fps rendering of high-density data.</figcaption>
             </figure>
 
-            <h3>What I Built</h3>
-            <p>The Flow:</p>
-            <ol>
-                <li><strong>Figma Design System</strong> → Components with MCP-compatible naming conventions</li>
-                <li><strong>MCP Server</strong> → Reads Figma via API, exposes metadata to Claude</li>
-                <li><strong>Claude (via Cursor)</strong> → Generates TypeScript React using shadcn/ui</li>
-                <li><strong>Local Development</strong> → Functional prototype with real API calls</li>
-            </ol>
-            <p>What Actually Worked (For Me):</p>
-            <ul>
-                <li>Spin up working prototypes in 30 minutes vs. 2 days</li>
-                <li>Components stayed consistent with design system</li>
-                <li>Could test real AI behaviors (streaming, latency) immediately</li>
-                <li>Fast iteration – ask Claude to modify, see results instantly</li>
-            </ul>
-            <p>The magic moment: “Create a chat interface with streaming responses” → working code that matched our design system.</p>
+            <h3>The Result</h3>
+            <p>CoffeeBloom democratizes espresso data. By integrating directly with the Visualizer.coffee API and supporting local .shot files, the app provides a centralized home for a barista's history. It successfully turns a clinical data point into a digital keepsake.</p>
 
-            <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 3rem 0; width: 100%; max-width: 100%;">
-                <figure style="margin: 0;">
-                    <img src="/mcp-figma.png" alt="Figma Design System" style="width: 100%; height: auto; border-radius: 8px;" />
-                    <figcaption style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;">Figma design library using shadcn/ui component naming conventions for MCP compatibility</figcaption>
-                </figure>
-                <figure style="margin: 0;">
-                    <img src="/mcp-code.png" alt="Claude Desktop Code Generation" style="width: 100%; height: auto; border-radius: 8px;" />
-                    <figcaption style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;">Claude Desktop (MCP) reading Figma component metadata to generate matching React code</figcaption>
-                </figure>
-            </figure>
 
-            <h3>The Hard Truth: Two Major Roadblocks</h3>
-            <h4>1. The Scaling & Setup “Tax”</h4>
-            <p><span style="font-weight: 600;">The Problem:</span> The pipeline required specific local environment configuration. To use it, teammates needed to install MCP SDK, manage API keys, and be comfortable with terminal commands.</p>
-            <p><span style="font-weight: 600;">The Realization:</span> I built a “bespoke cockpit” for myself, not a “utility” for the team.</p>
-            <p><span style="font-weight: 600;">The Insight:</span> For design tools to succeed in enterprise environments, they must be browser-first and zero-config. Setup friction killed adoption.</p>
-
-            <h4>2. The “One-Way Street” Limitation</h4>
-            <p><span style="font-weight: 600;">The Problem:</span> Sync was unidirectional – I could pull from Figma but couldn’t push changes back.</p>
-            <p><span style="font-weight: 600;">The Technical Gap:</span> MCP can read context brilliantly, but writing back to design tools isn’t part of the paradigm yet. AI-assisted design should enable bidirectional learning.</p>
-
-            <figure style="margin: 3rem 0; width: 50%; max-width: 50%;">
-                <img src="/mcp-sync-problem.png" alt="One-way sync problem diagram" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: left; margin-top: 0.75rem;">The one-way sync problem—MCP can read from Figma but can’t write design changes back</figcaption>
-            </figure>
-
-            <h3>What I Learned About AI-Powered Workflows</h3>
-            <ol>
-                <li><strong>LLMs Lower Barriers, But Don’t Remove Them.</strong> Claude made generating code incredibly easy. But the gap between “working for me” and “working for the team” remained enormous.</li>
-                <li><strong>AI Tools Are “Agreeable” – Sometimes Too Agreeable.</strong> Claude never pushed back on my assumptions. You still need critical thinking – AI amplifies your direction, good or bad.</li>
-                <li><strong>The Best AI Tools Solve Clear, Specific Problems.</strong> The most successful moments came from clear, bounded problems. The failure was trying to solve a vague, systemic issue.</li>
-                <li><strong>Hands-On Building Reveals Hidden Truths.</strong> No planning would have revealed the setup tax or one-way sync limitation. Even “failed” prototypes teach what won’t work.</li>
-            </ol>
-
-            <h3>Reflection: Technical Feasibility vs. Product Viability</h3>
-            <p>This project taught me the difference between building something that works and building something that scales.</p>
-            <p>As a designer who prototypes with code, it’s easy to fall in love with technical elegance. But my job isn’t building the most advanced pipeline – it’s building tools that empower the team to move faster together.</p>
-            <p>My evaluation criteria now: “Can my least technical teammate use this without my help?” If not, it’s not ready.</p>
         `
     },
     {
@@ -195,6 +164,58 @@ export const projects: Project[] = [
             <h3>Reflection</h3>
             <p>hila taught me that the best AI products feel effortless not because the AI is sophisticated, but because the design earns user trust.</p>
             <p>We succeeded by making the most interpretable AI on the market. Every design decision—from source highlights to honest uncertainty to streaming thought processes—served the goal of making a powerful, unpredictable technology feel reliable and controllable.</p>
+        `
+    },
+    {
+        title: "ML Platform",
+        slug: "ml-platform",
+        description: "Modular end-to-end ML platform that helps all stakeholders to collaboratively identify signal within data.",
+        category: "Product Design",
+        company: "Vianai Systems",
+        timeline: "2020 - 2021",
+        role: "UX/Visual Designer",
+        team: "Cross-functional",
+        outcome: "Platform Launch",
+        image: "/ml-hero.png",
+        content: `
+            <h3>The Challenge</h3>
+            <p>Machine learning workflows often involve disjointed tools and complex underlying micro-services that make collaboration difficult. The core challenge was to abstract these technical complexities into a cohesive user experience that could serve different roles involved in building models, generating predictions, and explaining model behavior.</p>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/ml-process.png" alt="ML Workflow Complexity Map" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Mapping the complexity: Early user flows identifying the disjointed steps in the original ML workflow.</figcaption>
+            </figure>
+
+            <h3>The Solution</h3>
+            <p>Design a “Power to the People” user experience that unifies the ML workflow.</p>
+            <ul>
+                <li><strong>Unified Interface:</strong> Created a cohesive UX that abstracts the capabilities of underlying micro-services, making powerful ML tools accessible.</li>
+                <li><strong>Role-Based Enablement:</strong> The platform was designed to support specific needs of various user roles, allowing them to achieve results faster and with a significantly improved user experience.</li>
+                <li><strong>Collaborative Focus:</strong> The architecture emphasizes collaboration, helping teams work together to find signal in their data effectively.</li>
+            </ul>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/ml-modelselection.png" alt="Model Selection Dashboard" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Transforming data into decision-making: The Model Selection dashboard abstracts complex performance logs into an interactive scatter plot, allowing data scientists to instantly filter and compare models based on metrics like Precision and F1 Score.</figcaption>
+            </figure>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/ml-settings.png" alt="Integrated Development Environment" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Integrated Development Environment: A split-view configuration screen that allows technical leads to manage permissions and edit TensorFlow code without leaving the platform ecosystem.</figcaption>
+            </figure>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/ml-deploy.png" alt="Model Deployment Radar Charts" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The Model Deployment screen uses radar charts to visualize optimization trade-offs like latency vs. accuracy</figcaption>
+            </figure>
+
+            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
+                <img src="/ml-settingshome.png" alt="ML Platform Settings Hub" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The Settings hub provides a centralized command center for managing every stage of the ML pipeline</figcaption>
+            </figure>
+
+            <h3>Key Takeaways</h3>
+            <p>The project successfully delivered a platform that democratizes access to machine learning capabilities, allowing users to focus on insights and model behavior rather than grappling with the complexities of the underlying infrastructure.</p>
         `
     },
     {
@@ -344,55 +365,85 @@ export const projects: Project[] = [
         `
     },
     {
-        title: "ML Platform",
-        slug: "ml-platform",
-        description: "Modular end-to-end ML platform that helps all stakeholders to collaboratively identify signal within data.",
-        category: "Product Design",
-        company: "Vianai Systems",
-        timeline: "2020 - 2021",
-        role: "UX/Visual Designer",
-        team: "Cross-functional",
-        outcome: "Platform Launch",
-        image: "/ml-hero.png",
+        slug: "building-with-claude",
+        title: "Building with Claude",
+        description: "An experimental design-to-code pipeline using Claude’s API.",
+        category: "Prototype Exploration",
+        company: "Personal",
+        timeline: "1 week",
+        role: "Design Technologist",
+        team: "Solo",
+        outcome: "Validated Pipeline",
+        image: "/mcp-hero.png",
         content: `
-            <h3>The Challenge</h3>
-            <p>Machine learning workflows often involve disjointed tools and complex underlying micro-services that make collaboration difficult. The core challenge was to abstract these technical complexities into a cohesive user experience that could serve different roles involved in building models, generating predictions, and explaining model behavior.</p>
-
-            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
-                <img src="/ml-process.png" alt="ML Workflow Complexity Map" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Mapping the complexity: Early user flows identifying the disjointed steps in the original ML workflow.</figcaption>
-            </figure>
-
-            <h3>The Solution</h3>
-            <p>Design a “Power to the People” user experience that unifies the ML workflow.</p>
+            <h3>The Vision: Closing the Design-to-Code Loop</h3>
+            <p>In the transition from deterministic to probabilistic UI, static mockups in Figma fail to capture the “feel” of an AI’s latency, reasoning, or uncertainty. I wanted to build a unified prototyping pipeline using Claude’s Model Context Protocol (MCP) that would:</p>
             <ul>
-                <li><strong>Unified Interface:</strong> Created a cohesive UX that abstracts the capabilities of underlying micro-services, making powerful ML tools accessible.</li>
-                <li><strong>Role-Based Enablement:</strong> The platform was designed to support specific needs of various user roles, allowing them to achieve results faster and with a significantly improved user experience.</li>
-                <li><strong>Collaborative Focus:</strong> The architecture emphasizes collaboration, helping teams work together to find signal in their data effectively.</li>
+                <li><strong>Sync with my Figma library</strong> – Pull live components into a functional environment</li>
+                <li><strong>Enable high-fidelity testing</strong> – Test real tool calls and agentic responses in minutes, not days</li>
             </ul>
-
-            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
-                <img src="/ml-modelselection.png" alt="Model Selection Dashboard" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Transforming data into decision-making: The Model Selection dashboard abstracts complex performance logs into an interactive scatter plot, allowing data scientists to instantly filter and compare models based on metrics like Precision and F1 Score.</figcaption>
+            <p>The hypothesis: If I could connect Figma → MCP → Claude → Cursor, I could prototype AI interactions faster than our current Figma → engineer handoff cycle.</p>
+            
+            <figure style="margin: 2rem 0;">
+                <img src="/mcp-pipeline.png" alt="Figma to Code Pipeline Diagram" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The MCP pipeline architecture—from Figma design system to functional React prototype in ~30 minutes.</figcaption>
             </figure>
 
-            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
-                <img src="/ml-settings.png" alt="Integrated Development Environment" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">Integrated Development Environment: A split-view configuration screen that allows technical leads to manage permissions and edit TensorFlow code without leaving the platform ecosystem.</figcaption>
+            <h3>What I Built</h3>
+            <p>The Flow:</p>
+            <ol>
+                <li><strong>Figma Design System</strong> → Components with MCP-compatible naming conventions</li>
+                <li><strong>MCP Server</strong> → Reads Figma via API, exposes metadata to Claude</li>
+                <li><strong>Claude (via Cursor)</strong> → Generates TypeScript React using shadcn/ui</li>
+                <li><strong>Local Development</strong> → Functional prototype with real API calls</li>
+            </ol>
+            <p>What Actually Worked (For Me):</p>
+            <ul>
+                <li>Spin up working prototypes in 30 minutes vs. 2 days</li>
+                <li>Components stayed consistent with design system</li>
+                <li>Could test real AI behaviors (streaming, latency) immediately</li>
+                <li>Fast iteration – ask Claude to modify, see results instantly</li>
+            </ul>
+            <p>The magic moment: “Create a chat interface with streaming responses” → working code that matched our design system.</p>
+
+            <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 3rem 0; width: 100%; max-width: 100%;">
+                <figure style="margin: 0;">
+                    <img src="/mcp-figma.png" alt="Figma Design System" style="width: 100%; height: auto; border-radius: 8px;" />
+                    <figcaption style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;">Figma design library using shadcn/ui component naming conventions for MCP compatibility</figcaption>
+                </figure>
+                <figure style="margin: 0;">
+                    <img src="/mcp-code.png" alt="Claude Desktop Code Generation" style="width: 100%; height: auto; border-radius: 8px;" />
+                    <figcaption style="font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem;">Claude Desktop (MCP) reading Figma component metadata to generate matching React code</figcaption>
+                </figure>
             </figure>
 
-            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
-                <img src="/ml-deploy.png" alt="Model Deployment Radar Charts" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The Model Deployment screen uses radar charts to visualize optimization trade-offs like latency vs. accuracy</figcaption>
+            <h3>The Hard Truth: Two Major Roadblocks</h3>
+            <h4>1. The Scaling & Setup “Tax”</h4>
+            <p><span style="font-weight: 600;">The Problem:</span> The pipeline required specific local environment configuration. To use it, teammates needed to install MCP SDK, manage API keys, and be comfortable with terminal commands.</p>
+            <p><span style="font-weight: 600;">The Realization:</span> I built a “bespoke cockpit” for myself, not a “utility” for the team.</p>
+            <p><span style="font-weight: 600;">The Insight:</span> For design tools to succeed in enterprise environments, they must be browser-first and zero-config. Setup friction killed adoption.</p>
+
+            <h4>2. The “One-Way Street” Limitation</h4>
+            <p><span style="font-weight: 600;">The Problem:</span> Sync was unidirectional – I could pull from Figma but couldn’t push changes back.</p>
+            <p><span style="font-weight: 600;">The Technical Gap:</span> MCP can read context brilliantly, but writing back to design tools isn’t part of the paradigm yet. AI-assisted design should enable bidirectional learning.</p>
+
+            <figure style="margin: 3rem 0; width: 50%; max-width: 50%;">
+                <img src="/mcp-sync-problem.png" alt="One-way sync problem diagram" style="width: 100%; height: auto; border-radius: 8px;" />
+                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: left; margin-top: 0.75rem;">The one-way sync problem—MCP can read from Figma but can’t write design changes back</figcaption>
             </figure>
 
-            <figure style="margin: 3rem 0; width: 100%; max-width: 100%;">
-                <img src="/ml-settingshome.png" alt="ML Platform Settings Hub" style="width: 100%; height: auto; border-radius: 8px;" />
-                <figcaption style="font-size: 0.9rem; color: var(--muted); text-align: center; margin-top: 0.75rem;">The Settings hub provides a centralized command center for managing every stage of the ML pipeline</figcaption>
-            </figure>
+            <h3>What I Learned About AI-Powered Workflows</h3>
+            <ol>
+                <li><strong>LLMs Lower Barriers, But Don’t Remove Them.</strong> Claude made generating code incredibly easy. But the gap between “working for me” and “working for the team” remained enormous.</li>
+                <li><strong>AI Tools Are “Agreeable” – Sometimes Too Agreeable.</strong> Claude never pushed back on my assumptions. You still need critical thinking – AI amplifies your direction, good or bad.</li>
+                <li><strong>The Best AI Tools Solve Clear, Specific Problems.</strong> The most successful moments came from clear, bounded problems. The failure was trying to solve a vague, systemic issue.</li>
+                <li><strong>Hands-On Building Reveals Hidden Truths.</strong> No planning would have revealed the setup tax or one-way sync limitation. Even “failed” prototypes teach what won’t work.</li>
+            </ol>
 
-            <h3>Key Takeaways</h3>
-            <p>The project successfully delivered a platform that democratizes access to machine learning capabilities, allowing users to focus on insights and model behavior rather than grappling with the complexities of the underlying infrastructure.</p>
+            <h3>Reflection: Technical Feasibility vs. Product Viability</h3>
+            <p>This project taught me the difference between building something that works and building something that scales.</p>
+            <p>As a designer who prototypes with code, it’s easy to fall in love with technical elegance. But my job isn’t building the most advanced pipeline – it’s building tools that empower the team to move faster together.</p>
+            <p>My evaluation criteria now: “Can my least technical teammate use this without my help?” If not, it’s not ready.</p>
         `
     },
     {
